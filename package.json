@@ -1,0 +1,14 @@
+{
+  "name": "vue-press-notes",
+  "version": "1.0.0",
+  "description": "This is a great notes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "dengwb",
+  "license": "MIT"
+}

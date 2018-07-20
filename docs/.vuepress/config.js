@@ -14,7 +14,8 @@ module.exports = {
       },
       { text: 'Notes',
         items: [
-          { text: '跨域传值', link: '/notes/postMessage' }
+          { text: '跨域传值', link: '/notes/postMessage' },
+          { text: '函数防抖节流', link: '/notes/debounceAndThrottle' }
         ]
       },
       { text: 'Contact', link: '/contact/index' }

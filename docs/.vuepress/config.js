@@ -1,7 +1,7 @@
 module.exports = {
   port: 8083,
-  title: 'Dengwb Notes by VuePress',
-  description: 'This is a Demo',
+  title: 'Dengwb 随行笔记',
+  description: '不只要吃面包，还要吃带馅的',
   themeConfig: {
     // The navigation bar
     nav: [
@@ -9,7 +9,9 @@ module.exports = {
       {
         text: 'Tools',
         items: [
-          { text: 'City', link: '/tools/city' }
+          { text: 'City', link: '/tools/city' },
+          { text: 'TabBar', link: '/tools/tabBar' },
+          { text: 'Drawer', link: '/tools/drawer' }
         ]
       },
       { text: 'Notes',

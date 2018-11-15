@@ -18,7 +18,8 @@ module.exports = {
         items: [
           { text: '跨域传值', link: '/notes/postMessage' },
           { text: '函数防抖节流', link: '/notes/debounceAndThrottle' },
-          { text: 'Javascript模块化', link: '/notes/jsModular' }
+          { text: 'Javascript模块化', link: '/notes/jsModular' },
+          { text: 'Javascript运行机制', link: '/notes/operationalMechanism' },
         ]
       },
       { text: 'Contact', link: '/contact/index' }

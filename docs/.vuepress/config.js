@@ -27,5 +27,14 @@ module.exports = {
     // The sidebar
     sidebar: 'auto',
     lastUpdated: 'Last Updated'
-  }
+  },
+  plugins: [
+    ['demo-code', {
+      onlineBtns: {
+        codepen: true,
+        jsfiddle: false,
+        codesandbox: false
+      }
+    }]
+  ]
 }

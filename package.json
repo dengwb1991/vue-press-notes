@@ -10,5 +10,12 @@
   },
   "keywords": [],
   "author": "dengwb",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "markdown-it": "^9.0.1",
+    "markdown-it-container": "^2.0.0",
+    "vuepress": "^1.0.2",
+    "vuepress-plugin-demo-code": "^0.3.5"
+  },
+  "dependencies": {}
 }

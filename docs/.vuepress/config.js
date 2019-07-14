@@ -22,7 +22,7 @@ module.exports = {
           { text: 'Javascript运行机制', link: '/notes/operationalMechanism' },
         ]
       },
-      { text: 'Contact', link: '/contact/index' }
+      { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }
     ],
     // The sidebar
     sidebar: 'auto',

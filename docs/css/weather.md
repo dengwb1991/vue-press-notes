@@ -5,7 +5,7 @@
 ::: demo
 <template>
   <div class="weather">
-    <div icon="sunny">
+    <div class="sunny">
       <span class="sun"></span>
     </div>
   </div>
@@ -34,20 +34,11 @@
   background: #212125;
   color: #e6e8db;
 }
-:root {
-  --shadow: #fd6f21;
-  --ring: currentColor;
-  --blend1: #fc5830;
-  --blend2: #f98c24;
-  --blend-from: 0%;
-  --blend-to: 100%;
-  --blend-dir: top right;
-}
-[icon] {
+.sunny {
   -webkit-box-flex: 0;
-  -webkit-flex: block;
-      -ms-flex: block;
-          flex: block;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
   display: block;
   position: relative;
   font-size: -webkit-calc(11em);
@@ -56,17 +47,10 @@
   height: 1em;
   margin: .3em;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-  background: -webkit-gradient(linear, from(var(--blend1)), to(var(--blend2)));
-  background: -webkit-linear-gradient(var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-  background: linear-gradient(to var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-}
-[icon='sunny'] {
-  --shadow: #fd6f21;
-  --blend1: #fc5830;
-  --blend2: #f98c24;
-  --blend-to: 65%;
+  -webkit-box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #fd6f21;
+          box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #fd6f21;
+  background: -webkit-linear-gradient(top right, #fc5830 0%, #f98c24 65%);
+  background: linear-gradient(to top right, #fc5830 0%, #f98c24 65%);
 }
 .sun {
   position: absolute;
@@ -79,8 +63,8 @@
   height: 40%;
   border-radius: 100%;
   background: #ffeb3b;
-  -webkit-box-shadow: 0 0 0 0.02em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0 0.02em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
+  -webkit-box-shadow: 0 0 0 0.02em currentColor inset, 0 0 0.3em -0.03em #fd6f21;
+          box-shadow: 0 0 0 0.02em currentColor inset, 0 0 0.3em -0.03em #fd6f21;
   -webkit-transform-origin: .1em .1em;
       -ms-transform-origin: .1em .1em;
           transform-origin: .1em .1em;
@@ -127,7 +111,7 @@
 ::: demo
 <template>
   <div class="weather">
-    <div icon="cloudy">
+    <div class="cloudy">
       <span class="cloud"></span>
       <span class="cloud"></span>
     </div>
@@ -157,20 +141,11 @@
   background: #212125;
   color: #e6e8db;
 }
-:root {
-  --shadow: #fd6f21;
-  --ring: currentColor;
-  --blend1: #fc5830;
-  --blend2: #f98c24;
-  --blend-from: 0%;
-  --blend-to: 100%;
-  --blend-dir: top right;
-}
-[icon] {
+.cloudy {
   -webkit-box-flex: 0;
-  -webkit-flex: block;
-      -ms-flex: block;
-          flex: block;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
   display: block;
   position: relative;
   font-size: -webkit-calc(11em);
@@ -179,21 +154,11 @@
   height: 1em;
   margin: .3em;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-  background: -webkit-gradient(linear, from(var(--blend1)), to(var(--blend2)));
-  background: -webkit-linear-gradient(var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-  background: linear-gradient(to var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-}
-[icon='cloudy'] {
-  --shadow: #1378bb;
-  --blend2: #1378bb;
-  --shadow: #c9e8de;
-  --blend1: #758595;
-  --blend2: #e0e2e5;
-  --blend1: #1b9ce2;
-  --blend-to: 65%;
-  --blend-to: 90%;
+  -webkit-box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #c9e8de;
+          box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #c9e8de;
+  background: -webkit-gradient(linear, from(#1b9ce2), to(#e0e2e5));
+  background: -webkit-linear-gradient(top right, #1b9ce2 0%, #e0e2e5 90%);
+  background: linear-gradient(to top right, #1b9ce2 0%, #e0e2e5 90%);
 }
 .cloud {
   position: absolute;
@@ -203,8 +168,8 @@
   height: .13em;
   border-radius: .1em;
   background-color: #fff;
-  -webkit-box-shadow: 0 0 0.1em 0.02em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0.1em 0.02em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
+  -webkit-box-shadow: 0 0 0.1em 0.02em #f0f2f0 inset, 0 0 0.3em -0.03em #c9e8de;
+          box-shadow: 0 0 0.1em 0.02em #f0f2f0 inset, 0 0 0.3em -0.03em #c9e8de;
   -webkit-animation: move 3000ms infinite ease-in-out;
           animation: move 3000ms infinite ease-in-out;
 }
@@ -254,7 +219,7 @@
 ::: demo
 <template>
   <div class="weather">
-    <div icon="snowy">
+    <div class="snowy">
       <span class="snowman"></span>
       <ul>
         <li></li>
@@ -298,20 +263,11 @@
   background: #212125;
   color: #e6e8db;
 }
-:root {
-  --shadow: #fd6f21;
-  --ring: currentColor;
-  --blend1: #fc5830;
-  --blend2: #f98c24;
-  --blend-from: 0%;
-  --blend-to: 100%;
-  --blend-dir: top right;
-}
-[icon] {
+.snowy {
   -webkit-box-flex: 0;
-  -webkit-flex: block;
-      -ms-flex: block;
-          flex: block;
+  -webkit-flex: none;
+      -ms-flex: none;
+          flex: none;
   display: block;
   position: relative;
   font-size: -webkit-calc(11em);
@@ -320,20 +276,13 @@
   height: 1em;
   margin: .3em;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-  background: -webkit-gradient(linear, from(var(--blend1)), to(var(--blend2)));
-  background: -webkit-linear-gradient(var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-  background: linear-gradient(to var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
+  -webkit-box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #c9e8de;
+          box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #c9e8de;
+  background: -webkit-gradient(linear, from(#758595), to(#e0e2e5));
+  background: -webkit-linear-gradient(bottom left, #758595 0%, #e0e2e5 90%);
+  background: linear-gradient(to bottom left, #758595 0%, #e0e2e5 90%);
 }
-[icon='snowy'] {
-  --shadow: #c9e8de;
-  --blend1: #758595;
-  --blend2: #e0e2e5;
-  --blend-to: 90%;
-  --blend-dir: bottom left;
-}
-[icon='snowy'] ul {
+.snowy ul {
   position: absolute;
   list-style: none;
   top: 0%;
@@ -343,55 +292,55 @@
   margin: 0;
   padding: 0;
 }
-[icon='snowy'] li::before,
-[icon='snowy'] li::after {
+.snowy li::before,
+.snowy li::after {
   content: '';
   position: absolute;
   list-style: none;
   width: .015em;
   height: .01em;
   border-radius: 100%;
-  background-color: var(--ring);
+  background-color: currentColor;
   will-change: transform, opacity;
   -webkit-animation: snow 3700ms infinite ease-out;
           animation: snow 3700ms infinite ease-out;
   opacity: 0;
 }
-[icon='snowy'] li:nth-child(2n+1)::before,
-[icon='snowy'] li:nth-child(13n+11)::after {
+.snowy li:nth-child(2n+1)::before,
+.snowy li:nth-child(13n+11)::after {
   top: -7%;
   left: 40%;
 }
-[icon='snowy'] li:nth-child(3n+2)::before,
-[icon='snowy'] li:nth-child(11n+7)::after {
+.snowy li:nth-child(3n+2)::before,
+.snowy li:nth-child(11n+7)::after {
   top: 5%;
   left: 90%;
   -webkit-animation-delay: 1000ms;
           animation-delay: 1000ms;
 }
-[icon='snowy'] li:nth-child(5n+3)::before,
-[icon='snowy'] li:nth-child(7n+5)::after {
+.snowy li:nth-child(5n+3)::before,
+.snowy li:nth-child(7n+5)::after {
   top: -10%;
   left: 80%;
   -webkit-animation-delay: 2000ms;
           animation-delay: 2000ms;
 }
-[icon='snowy'] li:nth-child(7n+5)::before,
-[icon='snowy'] li:nth-child(5n+3)::after {
+.snowy li:nth-child(7n+5)::before,
+.snowy li:nth-child(5n+3)::after {
   top: 10%;
   left: 10%;
   -webkit-animation-delay: 1300ms;
           animation-delay: 1300ms;
 }
-[icon='snowy'] li:nth-child(11n+7)::before,
-[icon='snowy'] li:nth-child(3n+2)::after {
+.snowy li:nth-child(11n+7)::before,
+.snowy li:nth-child(3n+2)::after {
   top: 20%;
   left: 70%;
   -webkit-animation-delay: 1500ms;
           animation-delay: 1500ms;
 }
-[icon='snowy'] li:nth-child(13n+11)::before,
-[icon='snowy'] li:nth-child(2n+1)::after {
+.snowy li:nth-child(13n+11)::before,
+.snowy li:nth-child(2n+1)::after {
   top: 35%;
   left: 20%;
   -webkit-animation-delay: 500ms;
@@ -404,7 +353,7 @@
   width: .15em;
   height: .15em;
   opacity: .9;
-  background: var(--ring);
+  background: currentColor;
   border-radius: 100%;
 }
 .snowman::after {
@@ -418,7 +367,7 @@
   width: .275em;
   height: .3em;
   border-radius: inherit;
-  background-color: var(--ring);
+  background-color: currentColor;
 }
 .snowman::before {
   content: '';
@@ -432,7 +381,7 @@
   height: .4em;
   border-radius: 60%;
   border: .02em solid transparent;
-  border-bottom-color: var(--blend1);
+  border-bottom-color: #758595;
   will-change: border-radius;
   -webkit-animation: snowman 9000ms infinite ease-in;
           animation: snowman 9000ms infinite ease-in;
@@ -473,7 +422,7 @@
 ::: demo
 <template>
   <div class="weather">
-    <div icon="stormy">
+    <div class="stormy">
       <span class="cloud"></span>
       <ul>
         <li></li>
@@ -509,16 +458,7 @@
   background: #212125;
   color: #e6e8db;
 }
-:root {
-  --shadow: #fd6f21;
-  --ring: currentColor;
-  --blend1: #fc5830;
-  --blend2: #f98c24;
-  --blend-from: 0%;
-  --blend-to: 100%;
-  --blend-dir: top right;
-}
-[icon] {
+.stormy {
   -webkit-box-flex: 0;
   -webkit-flex: block;
       -ms-flex: block;
@@ -531,19 +471,13 @@
   height: 1em;
   margin: .3em;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-  background: -webkit-gradient(linear, from(var(--blend1)), to(var(--blend2)));
-  background: -webkit-linear-gradient(var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-  background: linear-gradient(to var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
+  -webkit-box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #34c6d8;
+          box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #34c6d8;
+  background: -webkit-gradient(linear, from(#4b9cc2), to(#9adbd9));
+  background: -webkit-linear-gradient(top right, #4b9cc2 0%, #9adbd9 100%);
+  background: linear-gradient(to top right, #4b9cc2 0%, #9adbd9 100%);
 }
-[icon='stormy'] {
-  --shadow: #34c6d8;
-  --blend1: #4b9cc2;
-  --blend2: #9adbd9;
-}
-[icon='stormy']::before {
-  --shadow: rgba(255, 255, 255, 0);
+.stormy::before {
   content: '';
   position: absolute;
   top: 0;
@@ -557,17 +491,41 @@
   -webkit-animation: flash 2300ms infinite linear 80ms;
           animation: flash 2300ms infinite linear 80ms;
 }
-[icon='stormy'] .cloud {
-  --shadow: #c9e8de;
-  --ring: #f0f2f0;
-  background-color: var(--shadow);
+.stormy .cloud {
+  position: absolute;
+  top: .1em;
+  width: .37em;
+  height: .13em;
+  border-radius: .1em;
+  background-color: #c9e8de;
   font-size: 1.3em;
   left: 50%;
+  box-shadow: 0 0 .1em .02em #f0f2f0 inset,0 0 .3em -0.03em #c9e8de;
   will-change: background-color, transform, opacity;
-  -webkit-animation: flash 2300ms infinite linear, move 3700ms infinite linear;
-          animation: flash 2300ms infinite linear, move 3700ms infinite linear;
+  -webkit-animation: cloudflash 2300ms infinite linear, move 3700ms infinite linear;
+          animation: cloudflash 2300ms infinite linear, move 3700ms infinite linear;
 }
-[icon='stormy'] ul {
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: inherit;
+  border-radius: inherit;
+  background-color: inherit;
+  -webkit-box-shadow: inherit;
+          box-shadow: inherit;
+  bottom: 30%;
+}
+.cloud::before {
+  left: .05em;
+  width: .2em;
+  height: .2em;
+}
+.cloud::after {
+  left: .15em;
+  width: .15em;
+  height: .15em;
+}
+.stormy ul {
   position: absolute;
   list-style: none;
   top: 0%;
@@ -577,9 +535,9 @@
   margin: 0;
   padding: 0;
 }
-[icon='stormy'] li,
-[icon='stormy'] li::before,
-[icon='stormy'] li::after {
+.stormy li,
+.stormy li::before,
+.stormy li::after {
   position: absolute;
   width: .005em;
   height: .02em;
@@ -593,45 +551,45 @@
       -ms-transform: rotate(25deg);
           transform: rotate(25deg);
 }
-[icon='stormy'] li::before,
-[icon='stormy'] li::after {
+.stormy li::before,
+.stormy li::after {
   content: '';
 }
-[icon='stormy'] li:nth-child(5n+3)::before,
-[icon='stormy'] li:nth-child(11n+7)::after,
-[icon='stormy'] li:nth-child(2n+1) {
+.stormy li:nth-child(5n+3)::before,
+.stormy li:nth-child(11n+7)::after,
+.stormy li:nth-child(2n+1) {
   top: 10%;
   left: 68%;
   -webkit-animation-delay: 500ms;
           animation-delay: 500ms;
 }
-[icon='stormy'] li:nth-child(3n+2)::after,
-[icon='stormy'] li:nth-child(7n+5)::after,
-[icon='stormy'] li:nth-child(3n+2) {
+.stormy li:nth-child(3n+2)::after,
+.stormy li:nth-child(7n+5)::after,
+.stormy li:nth-child(3n+2) {
   top: 5%;
   left: 45%;
   -webkit-animation-delay: 1250ms;
           animation-delay: 1250ms;
 }
-[icon='stormy'] li:nth-child(2n+1)::before,
-[icon='stormy'] li:nth-child(5n+3)::after,
-[icon='stormy'] li:nth-child(7n+5) {
+.stormy li:nth-child(2n+1)::before,
+.stormy li:nth-child(5n+3)::after,
+.stormy li:nth-child(7n+5) {
   top: 4%;
   left: 82%;
   -webkit-animation-delay: 750ms;
           animation-delay: 750ms;
 }
-[icon='stormy'] li:nth-child(11n+7)::before,
-[icon='stormy'] li:nth-child(3n+2)::after,
-[icon='stormy'] li:nth-child(7n+5) {
+.stormy li:nth-child(11n+7)::before,
+.stormy li:nth-child(3n+2)::after,
+.stormy li:nth-child(7n+5) {
   top: 15%;
   left: 15%;
   -webkit-animation-delay: 2000ms;
           animation-delay: 2000ms;
 }
-[icon='stormy'] li:nth-child(7n+5)::before,
-[icon='stormy'] li:nth-child(2n+1)::after,
-[icon='stormy'] li:nth-child(11n+7) {
+.stormy li:nth-child(7n+5)::before,
+.stormy li:nth-child(2n+1)::after,
+.stormy li:nth-child(11n+7) {
   top: 10%;
   left: 33%;
   -webkit-animation-delay: 2500ms;
@@ -639,36 +597,70 @@
 }
 @-webkit-keyframes flash {
   49% {
-    background-color: var(--shadow);
+    background-color: rgba(255, 255, 255, 0);
   }
   51% {
-    background-color: var(--ring);
+    background-color: currentColor;
   }
   53% {
-    background-color: var(--shadow);
+    background-color: rgba(255, 255, 255, 0);
   }
   57% {
-    background-color: var(--ring);
+    background-color: currentColor;
   }
   85% {
-    background-color: var(--shadow);
+    background-color: rgba(255, 255, 255, 0);
   }
 }
 @keyframes flash {
   49% {
-    background-color: var(--shadow);
+    background-color: rgba(255, 255, 255, 0);
   }
   51% {
-    background-color: var(--ring);
+    background-color: currentColor;
   }
   53% {
-    background-color: var(--shadow);
+    background-color: rgba(255, 255, 255, 0);
   }
   57% {
-    background-color: var(--ring);
+    background-color: currentColor;
   }
   85% {
-    background-color: var(--shadow);
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+@-webkit-keyframes cloudflash {
+  49% {
+    background-color: #c9e8de;
+  }
+  51% {
+    background-color: #f0f2f0;
+  }
+  53% {
+    background-color: #c9e8de;
+  }
+  57% {
+    background-color: #f0f2f0;
+  }
+  85% {
+    background-color: #c9e8de;
+  }
+}
+@keyframes cloudflash {
+  49% {
+    background-color: #c9e8de;
+  }
+  51% {
+    background-color: #f0f2f0;
+  }
+  53% {
+    background-color: #c9e8de;
+  }
+  57% {
+    background-color: #f0f2f0;
+  }
+  85% {
+    background-color: #c9e8de;
   }
 }
 @-webkit-keyframes rain {
@@ -695,6 +687,18 @@
             transform: translate(-0.1em, 0.5em);
   }
 }
+@-webkit-keyframes move {
+  50% {
+    -webkit-transform: translateX(-0.05em);
+            transform: translateX(-0.05em);
+  }
+}
+@keyframes move {
+  50% {
+    -webkit-transform: translateX(-0.05em);
+            transform: translateX(-0.05em);
+  }
+}
 </style>
 :::
 
@@ -703,7 +707,7 @@
 ::: demo
 <template>
   <div class="weather">
-    <div icon="supermoon">
+    <div class="supermoon">
       <span class="moon"></span>
       <span class="meteor"></span>
     </div>
@@ -733,16 +737,7 @@
   background: #212125;
   color: #e6e8db;
 }
-:root {
-  --shadow: #fd6f21;
-  --ring: currentColor;
-  --blend1: #fc5830;
-  --blend2: #f98c24;
-  --blend-from: 0%;
-  --blend-to: 100%;
-  --blend-dir: top right;
-}
-[icon] {
+.supermoon {
   -webkit-box-flex: 0;
   -webkit-flex: block;
       -ms-flex: block;
@@ -755,20 +750,13 @@
   height: 1em;
   margin: .3em;
   border-radius: 100%;
-  -webkit-box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-          box-shadow: 0 0 0 0.05em var(--ring) inset, 0 0 0.3em -0.03em var(--shadow);
-  background: -webkit-gradient(linear, from(var(--blend1)), to(var(--blend2)));
-  background: -webkit-linear-gradient(var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
-  background: linear-gradient(to var(--blend-dir), var(--blend1) var(--blend-from), var(--blend2) var(--blend-to));
+  -webkit-box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #5133a5;
+          box-shadow: 0 0 0 0.05em currentColor inset, 0 0 0.3em -0.03em #5133a5;
+  background: -webkit-gradient(linear, from(#4054b2), to(#aa4cba));
+  background: -webkit-linear-gradient(bottom right, #4054b2 0%, #aa4cba 65%);
+  background: linear-gradient(to bottom right, #4054b2 0%, #aa4cba 65%);
 }
-[icon='supermoon'] {
-  --shadow: #5133a5;
-  --blend1: #4054b2;
-  --blend2: #aa4cba;
-  --blend-to: 65%;
-  --blend-dir: bottom right;
-}
-[icon="supermoon"]::before {
+.supermoon::before {
   content: '';
   position: absolute;
   top: 0;
@@ -792,19 +780,19 @@
   width: 40%;
   height: 40%;
   border-radius: 100%;
-  background: -webkit-radial-gradient(bottom left, circle, var(--ring), #fef07e);
-  background: radial-gradient(circle at bottom left, var(--ring), #fef07e);
-  -webkit-box-shadow: 0 0 0 0.02em var(--ring) inset, 0 0 0.3em -0.03em var(--blend2);
-          box-shadow: 0 0 0 0.02em var(--ring) inset, 0 0 0.3em -0.03em var(--blend2);
+  background: -webkit-radial-gradient(bottom left, circle, currentColor, #fef07e);
+  background: radial-gradient(circle at bottom left, currentColor, #fef07e);
+  -webkit-box-shadow: 0 0 0 0.02em currentColor inset, 0 0 0.3em -0.03em #aa4cba;
+          box-shadow: 0 0 0 0.02em currentColor inset, 0 0 0.3em -0.03em #aa4cba;
 }
 .moon::before,
 .moon::after {
   content: '';
   position: absolute;
   border-radius: 100%;
-  background-color: var(--blend1);
-  -webkit-box-shadow: 0.01em 0.01em 0.1em 0 var(--blend1);
-          box-shadow: 0.01em 0.01em 0.1em 0 var(--blend1);
+  background-color: #4054b2;
+  -webkit-box-shadow: 0.01em 0.01em 0.1em 0 #4054b2;
+          box-shadow: 0.01em 0.01em 0.1em 0 #4054b2;
 }
 .moon::before {
   top: 15%;

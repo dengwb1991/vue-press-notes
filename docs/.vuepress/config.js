@@ -1,17 +1,15 @@
 module.exports = {
   port: 8083,
   title: 'Dengwb 随行笔记',
-  description: '不只要吃面包，还要吃带馅的',
+  description: '发现世界、享受生活、探索未知、终身学习',
   themeConfig: {
     // The navigation bar
     nav: [
       { text: 'Home', link: '/' },
       {
-        text: 'Tools',
+        text: 'Css',
         items: [
-          { text: 'City', link: '/tools/city' },
-          { text: 'TabBar', link: '/tools/tabBar' },
-          { text: 'Drawer', link: '/tools/drawer' }
+          { text: 'Weather', link: '/css/weather' }
         ]
       },
       { text: 'Notes',

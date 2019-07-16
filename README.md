@@ -13,6 +13,3 @@
 ``` bash
 npm run dev
 ```
-
-## Author
-[[Dengwb]](http://www.dengwb.com/app/welcome.html)

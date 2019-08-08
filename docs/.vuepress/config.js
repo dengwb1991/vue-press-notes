@@ -14,6 +14,7 @@ module.exports = {
       },
       { text: 'Notes',
         items: [
+          { text: 'vue-create-api源码解析', link: '/notes/vue-create-api' },
           { text: '跨域传值', link: '/notes/postMessage' },
           { text: '函数防抖节流', link: '/notes/debounceAndThrottle' },
           { text: 'Javascript模块化', link: '/notes/jsModular' },

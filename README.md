@@ -1,7 +1,7 @@
 <p align="center">
 <img src="https://www.dengwb.com/static/logo/Dengwb.png" width="100px"/>
 </p>
-<p align="center">基于 vuepress 搭建的个人文章博客</p>
+<p align="center">基于 vuepress 搭建的个人技术文章博客</p>
 
 ## 链接目录
 

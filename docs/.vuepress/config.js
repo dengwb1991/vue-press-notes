@@ -15,13 +15,20 @@ module.exports = {
           { text: 'Weather', link: '/css/weather' }
         ]
       },
-      { text: 'Notes',
+      { 
+        text: 'Notes',
         items: [
           { text: 'vue-create-api源码解析', link: '/notes/vue-create-api' },
           { text: '跨域传值', link: '/notes/postMessage' },
           { text: '函数防抖节流', link: '/notes/debounceAndThrottle' },
           { text: 'Javascript模块化', link: '/notes/jsModular' },
           { text: 'Javascript运行机制', link: '/notes/operationalMechanism' },
+        ]
+      },
+      {
+        text: 'Webpack',
+        items: [
+          { text: 'DllPlugin', link: '/webpack/dll-plugin' }
         ]
       },
       { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }

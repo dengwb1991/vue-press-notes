@@ -26,6 +26,12 @@ module.exports = {
         ]
       },
       {
+        text: 'React',
+        items: [
+          { text: 'Redux', link: '/react/redux' }
+        ]
+      },
+      {
         text: 'Webpack',
         items: [
           { text: 'DllPlugin', link: '/webpack/dll-plugin' }

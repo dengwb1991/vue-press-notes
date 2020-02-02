@@ -34,7 +34,8 @@ module.exports = {
       {
         text: 'Webpack',
         items: [
-          { text: 'DllPlugin', link: '/webpack/dll-plugin' }
+          { text: 'DllPlugin', link: '/webpack/dll-plugin' },
+          { text: 'NodeExternals', link: '/webpack/webpack-node-externals' }
         ]
       },
       { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }

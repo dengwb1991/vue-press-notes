@@ -38,6 +38,7 @@ module.exports = {
           { text: 'NodeExternals', link: '/webpack/webpack-node-externals' }
         ]
       },
+      { text: 'Question', link: '/question/index' },
       { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }
     ],
     // The sidebar

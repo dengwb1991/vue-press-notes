@@ -39,6 +39,12 @@ module.exports = {
           { text: 'NodeExternals', link: '/webpack/webpack-node-externals' }
         ]
       },
+      {
+        text: '浏览器',
+        items: [
+          { text: 'BrowserCache', link: '/browser/browser-cache' }
+        ]
+      },
       { text: 'Question', link: '/question/index' },
       { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }
     ],

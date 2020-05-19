@@ -34,6 +34,12 @@ module.exports = {
         ]
       },
       {
+        text: 'Vue',
+        items: [
+          { text: '实现原理', link: '/vue/implementation-principle' },
+        ]
+      },
+      {
         text: 'Webpack',
         items: [
           { text: 'DllPlugin', link: '/webpack/dll-plugin' },

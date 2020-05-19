@@ -12,14 +12,6 @@ features:
 ---
 
 <div class="home-content-wrap">
-<div class="home-item">
-<div class="home-item-title">
-  <p class="home-title">Css</p>
-</div>
-
-[天气不可能那么可爱](/css/weather.html)
-
-</div>
 
 <div class="home-item">
 <div class="home-item-title">
@@ -29,6 +21,15 @@ features:
 [Redux](/react/redux.html)
 
 [基础 Hooks](/react/base-hooks.html)
+
+</div>
+
+<div class="home-item">
+<div class="home-item-title">
+  <p class="home-title">Vue</p>
+</div>
+
+[Vue2.x实现原理](/vue/implementation-principle.html)
 
 </div>
 
@@ -55,6 +56,11 @@ features:
 </div>
 
 <style>
+p > code, li > code {
+  background-color: #fff5f5!important;
+  color: #ff502c!important;
+}
+
 .home-content-wrap {
   width: 100%;
   display: flex;

@@ -23,6 +23,17 @@ features:
 
 <div class="home-item">
 <div class="home-item-title">
+  <p class="home-title">React</p>
+</div>
+
+[Redux](/react/redux.html)
+
+[基础 Hooks](/react/base-hooks.html)
+
+</div>
+
+<div class="home-item">
+<div class="home-item-title">
   <p class="home-title">Webpack</p>
 </div>
 

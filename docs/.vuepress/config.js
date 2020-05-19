@@ -29,7 +29,8 @@ module.exports = {
       {
         text: 'React',
         items: [
-          { text: 'Redux', link: '/react/redux' }
+          { text: 'Redux', link: '/react/redux' },
+          { text: '基础Hooks', link: '/react/base-hooks' }
         ]
       },
       {

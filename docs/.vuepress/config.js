@@ -17,7 +17,8 @@ module.exports = {
           { text: '函数防抖节流', link: '/notes/debounceAndThrottle' },
           { text: 'Javascript模块化', link: '/notes/jsModular' },
           { text: 'Javascript运行机制', link: '/notes/operationalMechanism' },
-          { text: 'css单位', link: '/notes/css-units' }
+          { text: 'css单位', link: '/notes/css-units' },
+          { text: '设计模式', link: '/notes/design-patterns' }
         ]
       },
       {

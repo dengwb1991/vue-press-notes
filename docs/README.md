@@ -49,6 +49,8 @@ features:
   <p class="home-title">浏览器</p>
 </div>
 
+[从输入URL到页面展示](/browser/input-url-to-page.html)
+
 [浏览器缓存机制](/browser/browser-cache.html)
 
 </div>

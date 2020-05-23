@@ -54,6 +54,12 @@ module.exports = {
           { text: '浏览器缓存机制', link: '/browser/browser-cache' }
         ]
       },
+      {
+        text: '数据结构',
+        items: [
+          { text: '基础算法', link: '/data-structure/based-algorithm' }
+        ]
+      },
       { text: 'Question', link: '/question/index' },
       { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }
     ],

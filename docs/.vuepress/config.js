@@ -52,7 +52,8 @@ module.exports = {
         text: '浏览器',
         items: [
           { text: '从输入URL到页面展示', link: '/browser/input-url-to-page' },
-          { text: '浏览器缓存机制', link: '/browser/browser-cache' }
+          { text: '浏览器缓存机制', link: '/browser/browser-cache' },
+          { text: '浏览器安全', link: '/browser/browser-security' }
         ]
       },
       {

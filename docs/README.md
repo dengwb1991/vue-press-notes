@@ -55,6 +55,8 @@ features:
 
 [浏览器缓存机制](/browser/browser-cache.html)
 
+[浏览器安全](/browser/browser-security.html)
+
 </div>
 
 </div>

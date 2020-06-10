@@ -29,6 +29,16 @@ XSS 全称是 Cross Site Scripting，为了与“CSS”区分开来，故简称 
 set-cookie: NID=189=M8q2FtWbsR8RlcldPVt7qkrqR38LmFY9jUxkKo3-4Bi6Qu_ocNOat7nkYZUTzolHjFnwBw0izgsATSI7TZyiiiaV94qGh-BzEYsNVa7TZmjAYTxYTOM9L_-0CN9ipL6cXi8l6-z41asXtm2uEwcOC5oh9djkffOMhWqQrlnCtOI; expires=Sat, 18-Apr-2020 06:52:22 GMT; path=/; domain=.google.com; HttpOnly
 ```
 
+### 防止页面被其他网站使用 Frame 嵌套
+
+设置 HTTP 响应头是用来给浏览器 指示允许一个页面 可否在 `<frame>`, `<iframe>`, `<embed>` 或者 `<object>` 中展现的标记。
+
+1. X-Frame-Options: deny 表示该页面不允许在 frame 中展示，即便是在相同域名的页面中嵌套也不允许；
+2. X-Frame-Options: sameorigin 表示该页面可以在相同域名页面的 frame 中展示；
+3. X-Frame-Options: allow-from uri 表示该页面可以在指定来源的 frame 中展示。
+
+[配置](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/X-Frame-Options)
+
 ## CSRF 攻击
 
 ### 什么是 CSRF 攻击

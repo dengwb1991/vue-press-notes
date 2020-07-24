@@ -66,3 +66,22 @@ Lax 相对宽松一点。在跨站点的情况下，从第三方站点的链接�
 ### CSRF Token
 
 设置一个唯一标示，请求传入.
+
+## a标签安全性问题
+
+### target 为 _blank 安全漏洞
+
+假设 A页面中有一个超链接如下所示，点击超链接打开一个新的tab窗口 B页面.
+
+```html
+<a href="B.html" target="_blank">link</a>
+```
+
+在新的tab窗口可以通过 `window.opener` 访问窗口对象，并且可以使用 `window.opener.location = ''` 将 A页面跳转到其他地址.
+
+新的tab窗口和A页面在同一个进程上运行，如果新的tab窗口正在执行开销极大的 JavaScript 逻辑，那页面的性能可能会受到影响.
+
+### 如何解决
+
+为标签添加 `rel='noopener'` 属性，在新标签中打开连接时不会打开它的开启者，也就是说 `window.opener = null`.
+

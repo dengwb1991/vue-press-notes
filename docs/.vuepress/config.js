@@ -63,6 +63,12 @@ module.exports = {
           { text: '基础算法', link: '/data-structure/based-algorithm' }
         ]
       },
+      {
+        text: 'MacOS',
+        items: [
+          { text: 'brew', link: '/mac-os/brew' }
+        ]
+      },
       { text: 'Question', link: '/question/index' },
       { text: 'GitHub', link: 'https://github.com/dengwb1991/vue-press-notes' }
     ],

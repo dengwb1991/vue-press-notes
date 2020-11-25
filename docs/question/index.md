@@ -36,7 +36,7 @@ code:
 
 ```js
 const Renderers = {
-  code: ({ value }) => { // 这行报错
+  code: ({ value }) => { // 报错
     return <SyntaxHighlighter style={style} language="javascript" children={value} />
   }
 }
@@ -53,3 +53,34 @@ const Renderers = {
 ```
 
 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react/issues/597)
+
+## Do not pass children as props. Instead, nest children between the opening and closing tags
+
+错误提示
+
+```bash
+❌ https://google.com/#q=react/no-children-prop
+Do not pass children as props. Instead, nest children between the opening and closing tags
+```
+
+code:
+
+```js
+const Codes = (props: Props) => {
+  return (
+    <ReactMarkdown renderers={Renderers} children={props.md}></ReactMarkdown> // 报错
+  )
+}
+```
+
+解决方案：
+
+```js
+const Codes = (props: Props) => {
+  return (
+    <ReactMarkdown renderers={Renderers}>{props.md}</ReactMarkdown>
+  )
+}
+```
+
+[eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md)

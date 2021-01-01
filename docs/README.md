@@ -48,6 +48,16 @@ features:
 
 <div class="home-item">
 <div class="home-item-title">
+  <p class="home-title">Babel</p>
+</div>
+
+[Babel 7](/babel/babel7.html)
+
+
+</div>
+
+<div class="home-item">
+<div class="home-item-title">
   <p class="home-title">浏览器</p>
 </div>
 

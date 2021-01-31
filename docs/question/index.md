@@ -84,3 +84,26 @@ const Codes = (props: Props) => {
 ```
 
 [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md)
+
+## 移动端Input获取焦点拉起系统键盘留白
+
+```js
+// 添加 blur 事件，触发后修改滚动条位置，可置顶可还原
+$_onBlur () {
+  const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+  if (scrollTop > 0) {
+    window.requestAnimationFrame(this.$_onBlur)
+    window.scrollTo(0, scrollTop - scrollTop / 8)
+  }
+}
+```
+
+## 移动端安卓手机Input拉起系统键盘被遮挡
+
+```js
+if (/Android/gi.test(navigator.userAgent)) {
+  event.target.scrollIntoView({
+    block: "center"
+  })
+}
+```

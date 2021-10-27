@@ -107,3 +107,31 @@ if (/Android/gi.test(navigator.userAgent)) {
   })
 }
 ```
+
+## 解决移动端safari、部分安卓手机浏览器跳转页面返回不刷新问题
+
+```js
+export function onPageShow(
+  callback = () => {
+    window.location.reload()
+  }
+) {
+  if (/iphone|ipod|ipad.*os 5/gi.test(navigator.appVersion)) {
+    window.onpageshow = function(event) {
+      if (event.persisted) {
+        callback()
+      }
+    }
+  } else {
+    document.addEventListener('visibilitychange', () => {
+      callback()
+    })
+  }
+}
+```
+
+```js
+// 调用
+onPageShow()
+location.assign('xxx')
+```

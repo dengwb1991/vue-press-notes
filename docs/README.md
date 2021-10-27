@@ -15,12 +15,12 @@ features:
 
 <div class="home-item">
 <div class="home-item-title">
-  <p class="home-title">React</p>
+  <p class="home-title" onclick="location.assign('/react')">React</p>
 </div>
 
-[Redux](/react/redux.html)
+<!-- [Redux](/react/redux.html)
 
-[基础 Hooks](/react/base-hooks.html)
+[基础 Hooks](/react/base-hooks.html) -->
 
 </div>
 
@@ -71,6 +71,7 @@ features:
 
 </div>
 
+
 <style>
 p > code, li > code {
   background-color: #fff5f5!important;
@@ -97,7 +98,7 @@ p > code, li > code {
 .home-title {
   display: inline-block;
   font-weight: bold;
-
+  cursor: pointer;
 }
 @media screen and (max-width: 500px) {
   .home-content-wrap {

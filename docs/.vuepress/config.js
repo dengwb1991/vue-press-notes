@@ -69,7 +69,8 @@ module.exports = {
       {
         text: 'MacOS',
         items: [
-          { text: 'brew', link: '/mac-os/brew' }
+          { text: 'brew', link: '/mac-os/brew' },
+          { text: 'tree', link: '/mac-os/tree' },
         ]
       },
       { text: 'Question', link: '/question/index' },

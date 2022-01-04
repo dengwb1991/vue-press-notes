@@ -3,7 +3,7 @@ home: true
 actionText: 开始阅读 →
 # actionLink: /zh/guide/
 features:
-- title: 
+- title:
   details: 
 - title: 
   details: 
@@ -26,46 +26,46 @@ features:
 
 <div class="home-item">
 <div class="home-item-title">
-  <p class="home-title">Vue</p>
+  <p class="home-title" onclick="location.assign('/vue')">Vue</p>
 </div>
 
-[Vue2.x实现原理](/vue/implementation-principle.html)
+<!-- [Vue2.x实现原理](/vue/implementation-principle.html)
 
-[Vuex](/vue/vuex.html)
-
-</div>
-
-<div class="home-item">
-<div class="home-item-title">
-  <p class="home-title">Webpack</p>
-</div>
-
-[编译优化-DllPlugin](/webpack/dll-plugin.html)
-
-[打包优化-NodeExternals](/webpack/webpack-node-externals.html)
+[Vuex](/vue/vuex.html) -->
 
 </div>
 
 <div class="home-item">
 <div class="home-item-title">
-  <p class="home-title">Babel</p>
+  <p class="home-title" onclick="location.assign('/webpack')">Webpack</p>
 </div>
 
-[Babel 7](/babel/babel7.html)
+<!-- [编译优化-DllPlugin](/webpack/dll-plugin.html)
+
+[打包优化-NodeExternals](/webpack/webpack-node-externals.html) -->
+
+</div>
+
+<div class="home-item">
+<div class="home-item-title">
+  <p class="home-title" onclick="location.assign('/babel')">Babel</p>
+</div>
+
+<!-- [Babel 7](/babel/babel7.html) -->
 
 
 </div>
 
 <div class="home-item">
 <div class="home-item-title">
-  <p class="home-title">浏览器</p>
+  <p class="home-title" onclick="location.assign('/browser')">浏览器</p>
 </div>
 
-[从输入URL到页面展示](/browser/input-url-to-page.html)
+<!-- [从输入URL到页面展示](/browser/input-url-to-page.html)
 
 [浏览器缓存机制](/browser/browser-cache.html)
 
-[浏览器安全](/browser/browser-security.html)
+[浏览器安全](/browser/browser-security.html) -->
 
 </div>
 

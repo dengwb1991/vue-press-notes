@@ -1,7 +1,7 @@
 module.exports = {
   port: 8083,
   title: 'Dengwb 随行笔记',
-  description: '发现世界、享受生活、探索未知、终身学习',
+  description: '小站',
   head: [
     ['link', { rel: 'icon', href: '/images/notes.png' }]
   ],

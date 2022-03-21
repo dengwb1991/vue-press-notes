@@ -69,6 +69,12 @@ features:
 
 </div>
 
+<div class="home-item">
+<div class="home-item-title">
+  <p class="home-title" onclick="location.assign('/pages/performance-optimization')">性能优化</p>
+</div>
+</div>
+
 </div>
 
 

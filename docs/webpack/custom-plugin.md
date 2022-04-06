@@ -647,3 +647,13 @@ module.exports = CustomPlugin
 [webpack4核心模块tapable源码解析](https://www.cnblogs.com/tugenhua0707/p/11317557.html)
 
 [深入浅出 Webpack](http://webpack.wuhaolin.cn/5%E5%8E%9F%E7%90%86/5-4%E7%BC%96%E5%86%99Plugin.html)
+
+[define-plugin 实现条件编译](https://github.com/dengwb1991/lifelong-learning/tree/master/webpack/001_define-plugin)
+
+[terser-webpack-plugin 实现删除console](https://github.com/dengwb1991/lifelong-learning/tree/master/webpack/002_remove-console)
+
+[手写plugin 实现条件编译](https://github.com/dengwb1991/lifelong-learning/tree/master/webpack/004_conditional-compile-plugin)
+
+[手写plugin 详解教程](https://github.com/dengwb1991/lifelong-learning/tree/master/webpack/005_handwritten-plugin)
+
+[手写plugin 对编译后的文件内容进行修改](https://github.com/dengwb1991/lifelong-learning/tree/master/webpack/006_polymorphism-plugin)

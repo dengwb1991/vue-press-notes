@@ -3,7 +3,8 @@ module.exports = {
   title: 'Dengwb 随行笔记',
   description: '小站',
   head: [
-    ['link', { rel: 'icon', href: '/images/notes.png' }]
+    ['link', { rel: 'icon', href: '/images/notes.png' }],
+    ['link', { rel: 'stylesheet', href: '/css/index.css' }],
   ],
   themeConfig: {
     // The navigation bar

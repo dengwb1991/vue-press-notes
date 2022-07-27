@@ -1,0 +1,13 @@
+/* ` `中的颜色 */
+.theme-default-content code {
+  color: #ff502c!important;
+  background-color: #fff5f5!important;
+}
+
+strong {
+  border: 1px solid #CCC;
+}
+
+.theme-default-content pre code, .theme-default-content pre[class*="language-"] code {
+  background-color: transparent!important;
+}

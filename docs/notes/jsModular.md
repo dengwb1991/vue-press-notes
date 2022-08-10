@@ -181,3 +181,51 @@ module.exports ={
   v: v
 }
 ```
+
+### module.exports 与 export default、export 的区别
+
+`module.exports` 用于 `node` 模块块开发，导出某个模块，CommonJS规范。对应导入require('xxx模块')。
+
+```js
+// a.js
+const data = {}
+module.export = data
+
+// b.js
+const d = require('./a.js')
+```
+
+```js
+// a.js
+exports.data = {}
+
+// b.js
+const d = require('./a.js')
+d.data
+```
+
+
+`export default`、`export` 用于ES6中模块块开发，导出某个模块，对应导入import XXX from 'xxx模块'
+
+```js
+// a.js
+const data = {}
+export default data
+
+// b.js
+import data from './a.js'
+```
+
+```js
+// a.js
+export const a = 1
+
+export function b () {}
+
+// b.js
+import { a, b } from './a.js'
+
+import * as data from './a.js'
+data.a
+data.b
+```

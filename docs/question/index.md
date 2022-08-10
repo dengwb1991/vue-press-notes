@@ -135,3 +135,55 @@ export function onPageShow(
 onPageShow()
 location.assign('xxx')
 ```
+
+## "export 'default' (imported as 'xxx') was not found in '../../xxx'
+
+代码如：
+
+```js
+import xxx from '../../xxx'
+```
+
+问题原因：编译器识别出错，认为 `../../xxx` 路径下未找到抛出的元素.
+
+### 检查代码
+
+查看该文件是否使用 `export default` 或者 `module.export`、`exports`. 若只是使用 `export` 需要使用结构 或者 `as` 关键字，如下：
+
+```js
+import { a, b } from '../../xxx'
+
+import * as xxx from '../../xxx'
+```
+
+### 若引入的umd
+
+引入的第三方 `umd` JS文件，使用 npm 安装后，通过包名引入是正常的，若直接将其打包后的产物copy到本地，引入使用会报该错误.
+
+* 解决方案1:
+
+修改 package.json
+
+```json
+{
+  "dependencies": {
+    "xxx": "file:../xxx",
+  }
+}
+```
+
+* 解决方案2：
+
+安装 `@babel/plugin-transform-modules-umd`
+
+
+babel.config.js
+
+```js
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset',
+  ],
+  plugins: ['@babel/plugin-transform-modules-umd']
+}
+```

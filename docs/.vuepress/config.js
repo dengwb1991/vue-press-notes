@@ -20,7 +20,8 @@ module.exports = {
           { text: 'Javascript运行机制', link: '/notes/operationalMechanism' },
           { text: 'css单位', link: '/notes/css-units' },
           { text: '设计模式', link: '/notes/design-patterns' },
-          { text: 'package.json冷门属性配置', link: '/notes/package-json' }
+          { text: 'package.json冷门属性配置', link: '/notes/package-json' },
+          { text: 'dev/peer/dependencies', link: '/notes/dependencies' }
         ]
       },
       {

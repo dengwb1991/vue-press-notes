@@ -187,3 +187,7 @@ module.exports = {
   plugins: ['@babel/plugin-transform-modules-umd']
 }
 ```
+
+* 解决方案3：
+
+使用 `lerna`

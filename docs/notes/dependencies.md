@@ -27,24 +27,32 @@
 | devDependencies | 是 | 否 | - | - | - |
 | peerDependencies | 否 | 否 | 报错提示 | 无提示 | 无提示 |
 
+## 总结
 
-## NPM v7
+:::tip
+1. 若为开发宿主项目，使用dependencies、devDependencies内安装依赖
+2. 若为开发SDK，有较强的依赖放在dependencies内，与主要功能无关的可以放在peerDependencies内，若涉及到体积等优化可以放在peerDependencies内
+:::
+
+## 其他
+
+### NPM v7
 
 在 `NPM v7` 版本中, 默认安装 `peerDependencies` 的依赖，可以使用 `–legacy-peer-deps` 标志阻止peer依赖的安装。
 
 
-## semver 介绍
+### semver 介绍
 
 semver 是 语义化版本（Semantic Versioning）规范 的一个实现，目前是由 npm 的团队维护，实现了版本和版本范围的解析、计算、比较。
 
 
-### 两个概念
+#### 两个概念
 
 **固定版本**：是指例如 0.4.1、1.2.7、1.2.4-beta.0 这样表示包的特定版本的字符串。
 
 **范围版本**：是对满足特定规则的版本的一种表示，例如 1.2.3-2.3.4、1.x、^0.2、>1.4.
 
-### 版本号格式
+#### 版本号格式
 
 主版本号[MAJOR]、次版本号[MINOR]、修订号[PATCH]
 
@@ -52,7 +60,7 @@ semver 是 语义化版本（Semantic Versioning）规范 的一个实现，目�
 2. 次版本号：当做了向下兼容的功能性新增，
 3. 修订号：当做了向下兼容的问题修正。
 
-### 先行版本号（Pre-release Version）
+#### 先行版本号（Pre-release Version）
 
 先行版本号可以作为发布正式版之前的版本，格式是在修订版本号后面加上一个连接号（-），再加上一连串以点（.）分割的标识符，标识符可以由英文、数字和连接号（[0-9A-Za-z-]）组成.
 
@@ -68,7 +76,7 @@ semver 是 语义化版本（Semantic Versioning）规范 的一个实现，目�
 3. rc：Release　Candidate) 系统平台上就是发行候选版本。RC版不会再加入新的功能了，主要着重于除错。
 
 
-### 定义依赖版本号
+#### 定义依赖版本号
 
 在 npm 的依赖的规则中，还有 ~、>、<、=、>=、<=、-、||、x、X、* 等符号；当使用 `npm install` 时，被安装的依赖的版本号前会默认加上 ^ 符号。
 
@@ -106,6 +114,6 @@ semver 是 语义化版本（Semantic Versioning）规范 的一个实现，目�
  `3.x` 对应所有主版本号为 3 的版本号
 ```
 
-## 链接
+### 链接
 
 [semver](https://semver.org/lang/zh-CN/)

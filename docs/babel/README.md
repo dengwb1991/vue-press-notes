@@ -8,4 +8,5 @@ home: true
 | [Babel介绍](/babel/001_babel_introduce.html) | 1 |
 | [Babel AST](/babel/002_babel_ast.html) | 1 |
 | [Babel API](/babel/003_babel_api.html) | 1 |
+| [Babel Parser](/babel/005_history_of_js_parser.html) | 1 |
 

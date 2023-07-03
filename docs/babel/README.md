@@ -9,4 +9,6 @@ home: true
 | [Babel AST](/babel/002_babel_ast.html) | 1 |
 | [Babel API](/babel/003_babel_api.html) | 1 |
 | [Babel Parser](/babel/005_history_of_js_parser.html) | 1 |
+| [Babel Traverse: Path Scope visitor](/babel/006_traverse_path_scope_visitor.html) | 1 |
+
 

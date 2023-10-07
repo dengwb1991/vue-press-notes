@@ -301,7 +301,7 @@ console.log(code)
 module.exports = function (api, options) {
     return {
         visitor: {
-            Iddentifier (path, state) {}
+            Identifier (path, state) {}
         }
     }
 }

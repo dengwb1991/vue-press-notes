@@ -49,6 +49,8 @@ features:
 <div class="home-item">
 <div class="home-item-title">
   <p class="home-title" onclick="location.assign('/babel')">Babel</p>
+  <br>
+  <p class="home-title" onclick="location.assign('/pages/ast')">AST抽象语法树</p>
 </div>
 
 <!-- [Babel 7](/babel/babel7.html) -->
@@ -75,9 +77,15 @@ features:
 </div>
 </div>
 
-<div class="home-item">
+<!-- <div class="home-item">
 <div class="home-item-title">
   <p class="home-title" onclick="location.assign('/pages/ast')">AST抽象语法树</p>
+</div>
+</div> -->
+
+<div class="home-item">
+<div class="home-item-title">
+  <p class="home-title" onclick="location.assign('/interview-questions')">面试题</p>
 </div>
 </div>
 

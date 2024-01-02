@@ -304,3 +304,93 @@ function performSort(array) {
 3. <b>提高用户体验</b>： 由于排序操作在后台线程中进行，用户仍然可以与页面进行交互，而不感到明显的卡顿或延迟。
 
 4. <b>避免主线程阻塞</b>： 在大规模数据处理中，使用 Web Worker 避免了在主线程中进行计算密集型任务而导致的阻塞，确保了页面的平滑运行。
+
+
+## HTML5的离线存储怎么使用，它的工作原理是什么
+
+HTML5 提供了一种离线存储的机制，通常被称为离线 Web 应用（Offline Web Application）。这个机制主要通过两个关键的技术来实现：Application Cache（应用缓存）和 Web Storage（Web 存储）。
+
+### Application Cache（应用缓存）
+
+<b>工作原理</b>：当用户访问页面时，浏览器会下载并缓存指定的资源文件。在用户离线时，浏览器将使用缓存的资源来渲染页面，而不需要从服务器重新获取。浏览器会定期检查 Cache Manifest 文件是否有更新，如果有更新，将会重新下载缓存的资源。
+
+<b>使用步骤</b>：
+
+1. 在 HTML 文件中引用 Manifest 文件： 在 HTML 文件的 `<html>` 标签中添加 manifest 属性，指向 Cache Manifest 文件。
+
+```html
+<!DOCTYPE html>
+<html manifest="example.appcache">
+<head>
+  <!-- 页面的其他头部信息 -->
+</head>
+<body>
+  <!-- 页面的内容 -->
+</body>
+</html>
+```
+
+2. 创建一个 Cache Manifest 文件：这是一个简单的文本文件，列出了需要缓存的资源文件，例如 HTML 文件、CSS 文件、JavaScript 文件、图像等。这个文件需要被服务器正确地配置为 MIME 类型 text/cache-manifest。文件名为 example.appcache。
+
+```js
+CACHE MANIFEST
+# Version 1.0
+
+CACHE:
+css/style.css
+js/script.js
+img/image.jpg
+
+NETWORK:
+*
+
+FALLBACK:
+/ offline.html
+
+```
+
+* `CACHE`：表示需要离线存储的资源列表，由于包含 manifest 文件的页面将自动离线存储，所以不需要把页面自身也列出来。
+* `NETWORK`：表示只有在线的情况下才能访问，
+* `FALLBACK`：定义了一个替代资源，当某个文件无法访问时会使用替代资源。
+
+
+3. 服务器配置： 确保服务器正确配置了 Cache Manifest 文件的 MIME 类型。
+
+Nginx 服务器：在 Nginx 服务器的配置文件中，你可以添加以下代码：
+
+```js
+types {
+    text/cache-manifest appcache;
+}
+```
+
+这会将文件扩展名为 .appcache 的文件的 MIME 类型设置为 text/cache-manifest。
+
+4. 操作 window.applicationCache
+
+https://zhuanlan.zhihu.com/p/70883817
+
+https://mp.weixin.qq.com/s/Q-Z8kYWSUJpkpAkTBv1Igw
+
+### Service Worker 
+
+https://zhuanlan.zhihu.com/p/44858068
+
+## 浏览器是如何对 HTML5 的离线存储资源进行管理和加载
+
+* <b>在线情况</b>
+
+浏览器发现 `html` 头部有 `manifest` 属性，它会请求 manifest 文件，如果是第一次访问页面，那么浏览器就会根据 manifest 文件的内容下载相应的资源并且进行离线存储。如果已经访问过页面并且资源已经进行离线存储了，那么浏览器会使用离线的资源加载页面，然后浏览器会对比新的 manifest 文件和旧的 manifest 文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，就会重新下载文件中的资源并进行离线存储。
+
+* <b>离线情况</b>
+
+浏览器会直接使用离线存储的资源。
+
+## title 与 h1 的区别、b 与 strong 的区别、i 与 em 的区别
+
+* title 属性没有明确意义，只是页面的标题；H1 表示层次明确的标题，对SEO有帮助；
+* b 标签为字体加粗；strong 标签有加重语义的效果，对SEO有帮助；
+* i 表示内容展示为斜体；em 表示强调文本，对SEO有帮助；
+
+## iframe 有哪些优缺点
+

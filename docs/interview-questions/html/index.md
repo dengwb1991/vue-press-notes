@@ -394,3 +394,87 @@ https://zhuanlan.zhihu.com/p/44858068
 
 ## iframe 有哪些优缺点
 
+`iframe`（内联框架）是一种HTML元素，用于在网页中嵌入另一个文档
+
+<b>优点:</b>
+
+1. <b>嵌入其他页面或内容</b>：iframe 允许在一个页面中嵌入另一个页面或内容，使得可以在同一个页面上展示不同来源的信息；
+2. <b>模块化</b>：可以将网页分为多个模块，每个模块使用单独的iframe加载，便于管理和维护；
+3. <b>异步加载</b>：iframe可以异步加载，不会阻塞整个页面的加载，提高页面性能；
+4. <b>独立性</b>：iframe内部的内容是相对独立的，不受外部页面的影响，这有助于隔离样式和脚本；
+
+<b>缺点:</b>
+
+1. <b>性能问题</b>：加载多个 iframe 可能会导致性能问题，特别是在移动设备上；
+2. <b>可访问性问题</b>：使用 iframe 可能导致可访问性问题，因为内部内容可能不容易被屏幕阅读器等辅助技术获取；
+3. <b>SEO问题</b>：搜索引擎可能难以正确解析和索引iframe中的内容，影响网页的搜索排名；
+4. <b>安全性问题</b>： 如果嵌入的内容不受信任，可能存在安全风险，例如跨站脚本攻击（XSS）；
+5. <b>浏览器兼容性</b>：不同浏览器对iframe的处理方式可能略有差异，需要额外的注意和测试；
+
+### 父页面 与 iframe 通信
+
+1. postMessage 方法通信；
+2. window.name 通信；
+3. 通过 URL 参数
+4. localStorage 或 SessionStorage 通信；
+
+父页面与 `iframe` 之间使用 `postMessage` 进行相互通信代码：
+
+父页面：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Page</title>
+</head>
+<body>
+
+<iframe src="child.html" id="myIframe" width="400" height="300"></iframe>
+
+<script>
+  // 获取 iframe 元素
+  const iframe = document.getElementById('myIframe');
+
+  // 向 iframe 发送消息
+  iframe.contentWindow.postMessage('Hello from parent!', 'https://example.com');
+
+  // 监听来自 iframe 的消息
+  window.addEventListener('message', function (event) {
+    if (event.origin === 'https://example.com') {
+      console.log('Message from iframe:', event.data);
+    }
+  });
+</script>
+
+</body>
+</html>
+```
+
+iframe 内部代码（child.html）：
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Child Page</title>
+</head>
+<body>
+
+<script>
+  // 监听来自父页面的消息
+  window.addEventListener('message', function (event) {
+    if (event.origin === 'https://example.com') {
+      console.log('Message from parent:', event.data);
+
+      // 向父页面发送回应消息
+      event.source.postMessage('Hello from iframe!', 'https://example.com');
+    }
+  });
+</script>
+
+</body>
+</html>
+```

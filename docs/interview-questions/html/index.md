@@ -478,3 +478,57 @@ iframe 内部代码（child.html）：
 </body>
 </html>
 ```
+
+### 如何回退关闭 iframe
+
+1. 在父页面中，通过 JavaScript 监听浏览器的回退事件，当回退发生时执行相应的操作；
+2. 当浏览器回退时，关闭iframe，可以使用JavaScript来控制iframe的显示与隐藏；
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parent Page</title>
+</head>
+<body>
+
+<!-- 父页面内容 -->
+
+<script>
+  // 在页面加载时，监听浏览器的回退事件
+  window.addEventListener('popstate', function (event) {
+    // 获取iframe元素
+    const iframe = document.getElementById('myIframe');
+
+    // 判断iframe是否存在并显示
+    if (iframe && iframe.style.display !== 'none') {
+      // 隐藏iframe
+      iframe.style.display = 'none';
+
+      // 阻止浏览器的默认回退行为
+      event.preventDefault();
+    }
+  });
+
+  // 打开iframe的函数
+  function openIframe() {
+    // 获取iframe元素
+    const iframe = document.getElementById('myIframe');
+
+    // 显示iframe
+    iframe.style.display = 'block';
+
+    // 在浏览器历史中添加一个新的状态，以便监听回退事件
+    history.pushState({ iframeOpen: true }, '', '');
+  }
+</script>
+
+<iframe id="myIframe" src="iframe.html" style="display: none; width: 100%; height: 300px;"></iframe>
+<button onclick="openIframe()">Open Iframe</button>
+
+</body>
+</html>
+```
+

@@ -532,3 +532,201 @@ iframe 内部代码（child.html）：
 </html>
 ```
 
+## label的作用是什么
+
+label 是 HTML5 表单元素提供标签。
+
+```html
+<label for="username">Username:</label>
+<input type="text" id="username" name="username">
+
+<label>
+  Username:
+  <input type="text" name="username">
+</label>
+```
+
+用法1：label 中的 for  属性与相应的表单元素的 id 属性相匹配；
+用法2：将表单元素嵌套早 label 元素内部
+
+
+ ## Canvas 和 SVG 的区别
+
+1. <b>Canvas</b>
+
+Canvas是画布，通过Javascript来绘制2D图形，是逐像素进行渲染的。其位置发生改变，就会重新进行绘制。
+
+特点：
+- 依赖分辨率
+- 不支持事件处理器，若想在canvas添加事件处理
+- 弱的文本渲染能力
+- 能够以 .png 或 .jpg 格式保存结果图像
+- 最适合图像密集型的游戏，其中的许多对象会被频繁重绘
+
+```html
+<canvas id="myCanvas" width="200" height="200"></canvas>
+
+<script>
+  // 获取 Canvas 元素
+  var canvas = document.getElementById('myCanvas');
+  var context = canvas.getContext('2d');
+
+  // 在 Canvas 上绘制一个矩形
+  context.fillStyle = 'blue';
+  context.fillRect(50, 50, 100, 100);
+
+  // 添加鼠标点击事件处理器
+  canvas.addEventListener('click', function(event) {
+    // 获取鼠标点击的位置
+    var mouseX = event.clientX - canvas.getBoundingClientRect().left;
+    var mouseY = event.clientY - canvas.getBoundingClientRect().top;
+
+    // 判断是否点击在矩形内
+    if (mouseX >= 50 && mouseX <= 150 && mouseY >= 50 && mouseY <= 150) {
+      alert('你点击了矩形！');
+    }
+  });
+</script>
+```
+
+2. <b>SVG</b>
+
+SVG可缩放矢量图形（Scalable Vector Graphics）是基于可扩展标记语言XML描述的2D图形的语言，SVG基于XML就意味着SVG DOM中的每个元素都是可用的，可以为某个元素附加Javascript事件处理器。在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。
+
+特点：
+- 不依赖分辨率
+- 支持事件处理器
+- 最适合带有大型渲染区域的应用程序（比如谷歌地图、如数据可视化、图表）
+- 复杂度高会减慢渲染速度（任何过度使用 DOM 的应用都不快）
+- 不适合游戏应用
+
+## head标签有什么作用，其中什么标签必不可少
+
+head 标签是 HTML 文档的头部元素，它通常包含一些与文档相关的元信息（metadata），而不是直接显示在页面上的内容。 head 中包含的信息对浏览器、搜索引擎和其他外部工具很重要，用于配置和理解文档的一些属性。
+
+1. title 标签：定义了文档的标题，它显示在浏览器的标题栏或选项卡上。<b>这是 head 中必不可少的一个标签</b>
+2. meta 标签：用于设置文档的元信息，如字符集、视口设置、关键词、描述等；
+3. link 标签：用于定义文档的外部资源，如 CSS、JS、图片等；
+4. style 标签：用于定义文档的内部样式，即 CSS 代码；
+5. script 标签：用于定义文档的脚本，即 JavaScript 代码；
+
+## 文档声明（Doctype）和 <!Doctype html> 有何作用? 严格模式与混杂模式如何区分？它们有何意义?
+
+<b>文档声明的作用：</b>用于定义文档的类型和版本。它通知浏览器使用哪种 HTML 或 XHTML 规范来解释文档。
+
+<b><!Doctype html>的作用：</b>HTML5 的文档声明，它告诉浏览器解析器使用 HTML5 规范来解析文档。因为 HTML5 不再基于 SGML（Standard Generalized Markup Language），而是独立的标准。
+
+### 严格模式与混杂模式如何区分
+
+<b>严格模式（Strict Mode）</b>
+
+- 在严格模式下，浏览器按照规范的严格标准来解析和渲染页面。
+- 通过正确使用文档声明，如 `<!DOCTYPE html>`，可以确保浏览器以严格模式进行解析。
+
+意义：
+
+- 更加严格的标准使开发者编写的代码更规范，提高代码质量。
+- 有助于避免一些不符合规范的行为，减少浏览器渲染差异，提高跨浏览器兼容性。
+
+
+<b>混杂模式（Quirks Mode）</b>
+
+- 在混杂模式下，浏览器采用更宽松的解析方式，以保持对旧版本网页的兼容性。
+- 如果文档声明缺失或不正确，浏览器可能进入混杂模式。
+
+意义：
+
+- 兼容性考虑，确保旧版本的网页在现代浏览器中仍然能够正常显示。
+- 对于老旧网站，混杂模式允许它们继续以之前的方式工作，而无需进行大规模的重写。
+
+## 浏览器乱码的原因是什么？如何解决？
+
+浏览器中出现乱码的原因通常涉及到字符编码的问题。字符编码是将字符映射到数字的规则，以便计算机能够正确地存储和显示文本。
+
+常见原因：
+
+1. 未正确设置字符编码
+如果 HTML 文档的 <meta> 标签中的字符集设置不正确或者缺失，浏览器可能无法正确解释文档中的字符。
+```html
+<meta charset="UTF-8">
+```
+
+2. 服务器端字符编码设置不一致：
+如果服务器端返回的文档内容与浏览器期望的字符编码不一致，可能导致乱码。
+
+3. 文档本身编码错误
+如果文本编辑器保存的文件编码与网页声明的字符编码不一致，也可能导致浏览器解析错误。
+
+
+## 渐进增强和优雅降级之间的区别
+
+"渐进增强"（Progressive Enhancement）和"优雅降级"（Graceful Degradation）都是前端开发中两种不同的策略，用于处理跨浏览器和设备的兼容性问题，以提供更好的用户体验。
+
+<b>渐进增强（Progressive Enhancement）</b>
+
+1. 定义：
+- 渐进增强是一种设计和开发策略，通过先构建一个基本的、可用的版本，然后逐步添加更高级别的功能来提升用户体验。
+
+2. 流程：
+- 一个基本的、核心的功能开始，确保它在所有浏览器和设备上都能正常工作。
+- 随后，逐步添加额外的功能或样式，这些功能在支持现代浏览器的情况下提供更丰富的体验。
+
+3. 优点：
+- 适用于各种设备和浏览器，确保核心功能的可用性。
+- 允许在现代浏览器上提供更富有创意和交互性的体验。
+
+<b>优雅降级（Graceful Degradation）</b>
+
+1. 定义：
+- 优雅降级是一种设计和开发策略，首先在先进的浏览器上构建一个功能丰富的版本，然后通过添加兼容性代码，确保在旧版本的浏览器上也能够正常工作。
+
+2. 流程：
+- 从一个高级的、功能丰富的版本开始，确保在支持现代浏览器的情况下提供最佳体验。
+- 随后，通过添加针对旧版本浏览器的兼容性代码，确保在这些浏览器中也有基本的功能和可用性。
+
+3. 优点：
+- 允许在先进的浏览器上提供最佳体验，同时在旧版本浏览器上提供基本可用性。
+- 适用于项目要求提供先进功能，但仍需要在老旧设备上工作。
+
+## 说一下 HTML5 drag API 
+
+
+HTML5 Drag and Drop API 是一组用于实现拖放操作的标准，它使得开发者可以轻松地在网页上实现元素的拖拽和放置。该 API 包括两个关键事件：`dragstart`（拖拽开始）和 `drop`（放置），以及一些其他与拖放相关的事件。
+
+1. 设置元素为可拖动：
+- 通过将 `draggable` 属性设置为 `true`，将元素标记为可拖动。
+```html
+<div draggable="true">拖拽我</div>
+```
+
+2. 处理 `dragstart` 事件
+- 当用户开始拖拽元素时，会触发 `dragstart` 事件，通过该事件可以定义要拖拽的数据和拖拽效果。
+```js
+document.addEventListener("dragstart", function(event) {
+  event.dataTransfer.setData("text/plain", "拖拽的数据");
+});
+```
+
+3. 处理 `dragover` 事件
+- 在允许放置的区域监听 `dragover` 事件，防止默认的浏览器行为。
+```js
+document.addEventListener("dragover", function(event) {
+  event.preventDefault();
+});
+```
+
+4. 处理 `drop` 事件
+- 当用户在允许放置的区域释放拖拽元素时，会触发 drop 事件，通过该事件可以获取拖拽的数据并进行相应的处理。
+```js
+document.addEventListener("drop", function(event) {
+  event.preventDefault();
+  var data = event.dataTransfer.getData("text/plain");
+  // 处理拖拽的数据
+});
+```
+
+5. `dragenter` 在拖拽元素进入可放置区域时触发
+
+6. `dragleave` 在拖拽元素离开可放置区域时触发
+
+7. `dragend` 在拖拽操作结束时触发，无论是成功放置还是取消拖拽

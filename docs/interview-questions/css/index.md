@@ -200,4 +200,123 @@
 
 虽然 `@import` 指令有可能会影响页面的加载和渲染速度，但具体影响程度取决于多个因素，包括网络情况、样式表大小、样式表加载顺序等。在实际开发中，为了提升页面加载性能，可以尽量减少 `@import` 的使用，或者将 `@import` 放置在页面底部，以减少其对页面渲染的阻塞。
 
-### transition和animation的区别
+### 7. transition和animation的区别
+
+<b>1. 触发方式</b>
+
+- `transition` 是通过改变元素的 CSS 属性值来触发动画效果的，通常是在元素状态变化时（例如鼠标悬停、焦点获取等）。
+- `animation` 是通过关键帧（keyframes）来定义动画效果，并通过将动画应用于元素来触发动画。
+
+<b>2. 定义方式</b>
+
+- `transition` 通过设置元素的 transition 属性来定义动画效果，指定需要过渡的属性、持续时间、过渡效果等。
+- `animation` 通过 @keyframes 规则来定义动画效果，然后将动画效果应用于元素，并设置动画的持续时间、动画播放次数、动画延迟等。
+
+<b>3. 适用对象</b>
+
+- `transition` 适用于在两种状态之间过渡的简单动画效果，例如颜色渐变、尺寸变化等。
+- `animation` 更适用于复杂的动画效果，可以定义更多的关键帧和动画参数，实现更复杂的动画效果。
+
+<b>4. 动画控制</b>
+
+- `transition` 主要是在元素状态变化时触发动画，并且只有简单的动画控制（如过渡时间、过渡效果等）。
+- `animation` 具有更多的动画控制选项，可以控制动画的播放次数、播放方向、播放速度等。
+
+总结：`transition` 是过渡属性，强调过度。`animation` 是动画属性，它的实现不需要触发事件，设定好时间之后可以自己执行。
+
+### 8. display:none 与 visibility:hidden 的区别
+
+<b>1. 元素在文档流中的影响</b>
+
+- `display` 元素会从文档流中完全移除，不占据任何空间，相当于元素不存在。周围的元素会像该元素不存在一样布局。
+- `visibility` 元素仍然占据文档流中的位置，只是不可见，相当于元素仍然存在，但看不见。
+
+<b>2. 可访问性</b>
+
+- `display` 隐藏的元素对于屏幕阅读器和搜索引擎来说是不可访问的，它们不会将其内容视为可用。
+- `visibility` 隐藏的元素对于屏幕阅读器和搜索引擎来说是可访问的，它们会将其内容视为可用。
+
+<b>3. 动画和过渡</b>
+
+- `display` 不能使用过渡或动画效果来改变元素的显示状态，因为元素不在文档流中，所以无法应用这些效果。
+- `visibility` 可以使用过渡或动画效果来改变元素的可见性，因为元素仍然存在于文档流中。
+
+<b>4. 性能影响</b>
+
+- `display` 性能消耗较高，因为每次都需要重新计算布局（重排）。
+- `visibility` 性能消耗较低，因为元素仍然占据着空间，不需要重新计算布局（重绘）。
+
+### 9. 伪元素和伪类的区别和作用
+
+<b>1. 伪元素（pseudo-elements）</b>
+
+- 伪元素用于在文档中创建一些不在 DOM 中存在的虚拟元素，并对这些虚拟元素进行样式设置。
+- 伪元素由 `::` 开头。例如 `::before`、`::after`、`::first-letter`、`::first-line`。
+- 伪元素可以用来在元素的内容前后插入额外的内容，例如用来创建一些装饰性的元素或者清除浮动。
+
+```css
+p::before { content: "::"; }
+p::after { content: "**"; }
+p::first-line { background: red; }
+p::first-letter { font-size: 24px; }
+```
+
+<b>2. 伪类（pseudo-classes）</b>
+
+- 伪类用于向元素添加特殊的状态，例如鼠标悬停、被选中等。
+- 伪类以单冒号 `:` 开头，例如 `:hover`、`:checked` 等。
+- 伪类主要用于根据用户操作或元素的状态改变样式，例如鼠标悬停时改变链接的颜色。
+
+```css
+a:hover { color: red; }
+p:first-child { color: red; }
+```
+
+### 10. 对 requestAnimationFrame 的理解
+
+实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，CSS3 中可以使用 transition 和 animation 来实现，HTML5 中的 canvas 也可以实现。除此之外，HTML5 提供一个专门用于请求动画的API，那就是 requestAnimationFrame，顾名思义就是<b>请求动画帧</b>。
+
+**语法：** `window.requestAnimationFrame(callback)`  其中，callback是<b>下一次重绘之前更新动画帧所调用的函数</b>。该回调函数会被传入DOMHighResTimeStamp参数，它表示requestAnimationFrame() 开始去执行回调函数的时刻。该方法属于宏任务，所以会在执行完微任务之后再去执行。
+
+**取消动画：** 使用 cancelAnimationFrame() 来取消执行动画，该方法接收一个参数——requestAnimationFrame默认返回的id，只需要传入这个id就可以取消动画了。
+
+**requestAnimationFrame 优势**
+
+- <b>节省资源：</b>使用SetTinterval 实现的动画，当页面被隐藏或最小化时，SetTinterval 仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，完全是浪费CPU资源。而RequestAnimationFrame则完全不同，当页面处理未激活的状态下，该页面的屏幕刷新任务也会被系统暂停，因此跟着系统走的RequestAnimationFrame也会停止渲染，当页面被激活时，动画就从上次停留的地方继续执行，有效节省了CPU开销。
+- <b>自适应刷新率：</b>在高频率事件( resize, scroll 等)中，为了防止在一个刷新间隔内发生多次函数执行，RequestAnimationFrame可保证每个刷新间隔内，函数只被执行一次，这样既能保证流畅性，也能更好的节省函数执行的开销，一个刷新间隔内函数执行多次时没有意义的，因为多数显示器每16.7ms刷新一次，多次绘制并不会在屏幕上体现出来。
+- <b>更好的性能：</b>requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。浏览器会在每一帧开始前优先调用回调函数，确保动画的流畅性和性能。
+
+**setTimeout执行动画的缺点**
+
+- 它通过设定间隔时间来不断改变图像位置，达到动画效果。但是容易出现卡顿、抖动的现象；
+- setTimeout 任务被放入异步队列，只有当主线程任务执行完后才会执行队列中的任务，因此实际执行时间总是比设定时间要晚；
+- setTimeout 的固定时间间隔不一定与屏幕刷新间隔时间相同，会引起丢帧；
+
+```js
+et requestId;
+let element = document.getElementById('myElement');
+let position = 0;
+
+function moveElement() {
+  position += 1;
+  element.style.left = position + 'px';
+  if (position < 100) {
+    requestId = requestAnimationFrame(moveElement);
+  }
+}
+
+function startAnimation() {
+  requestId = requestAnimationFrame(moveElement);
+}
+
+function stopAnimation() {
+  cancelAnimationFrame(requestId);
+}
+
+// 开始动画
+startAnimation();
+
+// 模拟停止动画
+setTimeout(stopAnimation, 3000); // 模拟停止动画的时间为3秒后
+```
+

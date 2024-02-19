@@ -6,6 +6,7 @@
 
 strong {
   border: 1px solid #CCC;
+  background-color: #CCC;
 }
 
 .theme-default-content pre code, .theme-default-content pre[class*="language-"] code {
